@@ -22,6 +22,7 @@ public class JobRestController {
     
     private final JobLauncher jobLauncher;
     private final Job job;
+    private final BankTransactionItemAnalyticsProcessor analyticsProcessor;
 
     @GetMapping("/startJob")
     public BatchStatus load() throws Exception{
@@ -33,6 +34,14 @@ public class JobRestController {
             log.info("Running ..........");
         }
         return jobExecution.getStatus();
+    }
+
+    @GetMapping("/analytics")
+    public Map<String, Double> analytics(){
+        Map<String, Double> map = new HashMap<>();
+        map.put("TotalDebit", analyticsProcessor.getTotalDebit());
+        map.put("TotalCrediit", analyticsProcessor.getTotalCredit());
+        return map;
     }
 
     

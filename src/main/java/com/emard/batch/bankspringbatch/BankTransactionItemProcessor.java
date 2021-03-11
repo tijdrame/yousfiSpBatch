@@ -7,7 +7,7 @@ import com.emard.batch.bankspringbatch.dao.BankTransaction;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class BankTransactionItemProcessor implements ItemProcessor<BankTransaction, BankTransaction>{
 
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy-HH:mm");
